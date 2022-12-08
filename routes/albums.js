@@ -1,15 +1,15 @@
 const router = require("express").Router();
 
-const users = require("../data/users");
+const albums = require("../data/albums");
 
 router.get("/", (req, res) => {
-  res.json(users);
+  res.json(albums);
 });
 
 router.get("/:id", (req, res) => {
-  const user = users.find((userData) => userData.id == req.params.id);
-  if (user) {
-    return res.json(user);
+  const album = albums.find((albumData) => albumData.id == req.params.id);
+  if (album) {
+    return res.json(album);
   }
   res.json({ msg: "sorry no user found" });
 });
